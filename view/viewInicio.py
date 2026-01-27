@@ -18,14 +18,16 @@ class ViewInicio:
         nome = ""
         email = ""
         senha = ""
+        cargo = 0
         while True:
             print("Cadastro".center(26, "-"))
             
             print(f"1 - Insira seu nome:{nome}")
             print(f"2 - Insira seu email:{email}")
             print(f"3- Insira sua senha:{senha}")
-            print(f"4- Concluir")
-            print(f"5- Cancelar")
+            print(f"4- Insira sua senha:{senha}")
+            print(f"5- Concluir")
+            print(f"6- Cancelar")
 
             op = int(input())
 
@@ -37,6 +39,13 @@ class ViewInicio:
                 case 3:#senha
                     senha = input("Insira sua senha:")
                 case 4:#concluir
+                    true = True
+                    while true:
+                        cargo = input("Insira seu cargo(1- Funcionario / 2- Cliente):")
+                        if cargo == 1 or cargo ==2:
+                            true = False
+                            
+                case 5:#concluir
                     if not nome:
                         print("Nome invalido")
                     elif not email or "@" not in email:
@@ -45,7 +54,7 @@ class ViewInicio:
                         print("Senha invalida")
                     else:
                         return (nome, email, senha)
-                case 5:#cancelar
+                case 6:#cancelar
                     break
                 case _: 
                     print("Opção invalida")

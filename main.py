@@ -13,6 +13,7 @@ viewInicio = ViewInicio()
 def menu(usuarioAtual):
     print ("Menu de escolhas".center(30, "-"))
     print(f"Bem vindo {usuarioAtual.nome}!!!")
+    
 
 
 def logar():
