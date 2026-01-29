@@ -35,10 +35,10 @@ def logar():
                         return user
                     
             case 2:#cadastro
-                nome, email, senha = viewInicio.cadastrar()
+                nome, email, senha, cargo = viewInicio.cadastrar()
         
-                if nome is not None and email is not None and senha is not None:
-                    userController.cadastrar(nome, email, senha)
+                if nome is not None and email is not None and senha is not None and cargo is not None:
+                    userController.cadastrar(nome, email, senha, cargo)
             case 3:
                 return "SAIR"
             case _: 

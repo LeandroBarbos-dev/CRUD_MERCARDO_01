@@ -19,13 +19,14 @@ class ViewInicio:
         email = ""
         senha = ""
         cargo = 0
+        cargoV = ""
         while True:
             print("Cadastro".center(26, "-"))
             
             print(f"1 - Insira seu nome:{nome}")
             print(f"2 - Insira seu email:{email}")
             print(f"3- Insira sua senha:{senha}")
-            print(f"4- Insira sua senha:{senha}")
+            print(f"4- Insira seu cargo:{cargoV}")
             print(f"5- Concluir")
             print(f"6- Cancelar")
 
@@ -39,23 +40,28 @@ class ViewInicio:
                 case 3:#senha
                     senha = input("Insira sua senha:")
                 case 4:#concluir
-                    true = True
-                    while true:
-                        cargo = input("Insira seu cargo(1- Funcionario / 2- Cliente):")
-                        if cargo == 1 or cargo ==2:
-                            true = False
-                            
+                    cargo = 0
+                    while  cargo < 1 or cargo >2:
+                        cargo = int(input("Insira seu cargo(1- Funcionario / 2- Cliente):"))
+                        if cargo == 1:
+                            cargoV = "Funcionario"
+                        elif cargo == 2: 
+                            cargoV = "Cliente"
+                        
+
                 case 5:#concluir
-                    if not nome:
+                    if nome is None:
                         print("Nome invalido")
-                    elif not email or "@" not in email:
+                    elif email is None or "@" not in email:
                         print("Email invalido")
-                    elif not senha:
+                    elif senha is None :
                         print("Senha invalida")
+                    elif cargo is None:
+                        print("Cargo invalido")
                     else:
-                        return (nome, email, senha)
+                        return (nome, email, senha,cargo)
                 case 6:#cancelar
-                    break
+                    return (None, None, None, None)
                 case _: 
                     print("Opção invalida")
 
@@ -90,7 +96,31 @@ class ViewInicio:
                 case _: 
                     print("Opção invalida")
         
-        
+    
+    def menuCliente(self):
+        print("Menu".center(26, "-"))
+        print("1 - Ver Produtos".center(26))
+        print("2 - Ver carrinho".center(26))
+        print("3 - Sair".center(26))
+        op = 0
+
+        while op<1 or op>3:
+            op = int(input())
+
+        return op
+
+
+    def menuFuncionario(self):
+        print("Menu".center(26, "-"))
+        print("1 - Ver Produtos".center(26))
+        print("2 - Ver carrinho".center(26))
+        print("3 - Sair".center(26))
+        op = 0
+
+        while op<1 or op>3:
+            op = int(input())
+
+        return op
 
     
         

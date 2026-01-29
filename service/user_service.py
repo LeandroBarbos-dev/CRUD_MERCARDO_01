@@ -4,15 +4,20 @@ class UserService:
     def __init__(self, repository):
         self.repository = repository
 
-    def cadastrar(self, user):
-        if not user.nome:
+    def cadastrar(self, nome, email, senha, cargo):
+        if not nome:
             raise ValueError("Nome não pode ser vazio")
 
-        if not user.senha:
+        if not senha:
             raise ValueError("Senha inválida")
 
-        if "@" not in user.email:
+        if "@" not in email:
             raise ValueError("Email inválido")
+        
+        if not cargo:
+            raise ValueError("Cargo invalido")
+        
+        user = User(0, nome, email, senha, cargo)
         
         self.repository.salvar(user)
 

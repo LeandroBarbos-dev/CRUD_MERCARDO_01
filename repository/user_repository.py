@@ -41,7 +41,8 @@ class UserRepository:
                     u["id"],
                     u["nome"],
                     u["email"],
-                    u["senha"]
+                    u["senha"],
+                    u["cargo"]
                 )
 
         return None
